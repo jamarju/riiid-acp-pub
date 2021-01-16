@@ -6,9 +6,14 @@ The solution will be presented at the [35th AAAI Conference on Artificial Intell
 
 # Steps to reproduce
 
+## Used hardware
+
+* Threadripper 1950x + 256 GiB RAM + 6 x RTX 3090 GPUs computer
+* Ryzen 9 3950x + 64 GiB RAM + 1 x RTX 3090 GPU computer
+
 ## Env setup
 
-Clone this repo and create `input` directory:
+Clone this repo and create the `input` directory:
 
 ```
 git clone https://github.com/jamarju/riiid-acp-pub
@@ -21,6 +26,12 @@ Unzip the dataset into `input` or just copy over the required files:
 * `lectures.csv`
 * `questions.csv`
 
+Alternatively, you can just create a symlink from your dataset path to `input`:
+
+```
+ln -s /your/dataset/path input
+```
+
 Install conda env and run jupyter:
 
 ```
@@ -31,7 +42,7 @@ jupyter notebook --ip 0.0.0.0 --no-browser --NotebookApp.iopub_msg_rate_limit=10
 
 ## Run notebooks
 
-Run `01_pre.ipynb` to preprocess data. A minimum 128 GiB RAM is required. This will generate the following pkl files in `input/`
+Run `01_pre.ipynb` to preprocess data. A minimum 128 GiB RAM is required (a swapfile **is** required if your computer has less than 128 GiB of RAM). This will generate the following pkl files in `input/`
 
 * `input/data_v210101b.pkl`
 * `input/meta_v210101b.pkl`
