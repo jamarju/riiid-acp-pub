@@ -81,9 +81,18 @@ At this point, `ls -l kaggle_dataset/root/resources` should look like this:
 -rw-rw-r-- 2 javi javi    1953960 Jan 11 11:12 meta_v210101b.pkl
 ```
 
-Run `05_inference`.
+Build the resources dataset:
 
-The default inference script will attempt to ensemble up to two models with dynamic fallback to single model inference in order to fulfill the allocated time budget (8.75h by default).
+```
+cd kaggle_dataset
+make
+```
+
+Run `05_inference.ipynb`.
+
+If you trained your own models, set the `H1` and `H2` to the appropriate training hyperparams.
+
+The default inference notebook will attempt to ensemble up to two models with dynamic fallback to single model inference in order to fulfill the allocated time budget (8.75h by default).
 
 It should produce an AUROC=0.816 on the default 0.025 user holdout validation set. Sample output:
 
@@ -92,4 +101,11 @@ It should produce an AUROC=0.816 on the default 0.025 user holdout validation se
 ```
 
 The script will also produce a `submission.csv` file with predictions in the same format as `example_sample_submission.csv`.
+
+Alternatively, you can convert the notebook into a raw .py script that can be launched from the command line instead of jupyter's ipython interpreter. The execution should run faster and use less RAM this way. See instructions in the notebook.
+
+# Thanks to...
+
+* Kaggle and Riiid for organizing this challenging competition
+* [@wuwenmin](https://www.kaggle.com/wuwenmin) for his [fast ROC AUC calculation routine](https://www.kaggle.com/c/riiid-test-answer-prediction/discussion/208031)
 
