@@ -90,7 +90,7 @@ make
 
 Run `05_inference.ipynb`.
 
-If you trained your own models, set the `H1` and `H2` to the appropriate training hyperparams.
+If you trained your own models, set the `H1` and `H2` dicts to the appropriate training hyperparams.
 
 The default inference notebook will attempt to ensemble up to two models with dynamic fallback to single model inference in order to fulfill the allocated time budget (8.75h by default).
 
